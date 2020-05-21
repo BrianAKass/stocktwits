@@ -4,7 +4,8 @@
   "description": "stocktwits 2 electric booogaloo\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[\u001b[C\u001b[C\u001b[C\u001b[Cgaloo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm i && cd client && npm i && npm run build && cd .. && nodemon app.js"
   },
   "repository": {
     "type": "git",
