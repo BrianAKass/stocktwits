@@ -61,15 +61,11 @@ function App() {
     });
   };
 
-  const lookupStock = (x) => {
+  const lookupStock = async (x) => {
     if (x) {
-      Axios.get(`/api/${x}`)
-        .then((res) => {
-          setTweets(res.data.messages);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      const res = await Axios.get(`/api/${x}`);
+      setTweets(res.data.messages);
+      console.log(res.data.messages)
     } else {
       setTweets([]);
     }
