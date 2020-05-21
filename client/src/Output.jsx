@@ -1,7 +1,5 @@
 import React from "react";
 import Stocks from "./Stocks";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Tweets from "./Tweets";
 function Output(props) {
   return (

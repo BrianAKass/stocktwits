@@ -2,18 +2,22 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const cors = require("cors");
+const axios = require("axios");
+app.use(express.json());
+app.use(express.static("client/build"));
 const PORT = process.env.PORT || 3000;
 
-const corsOptions = {
-  origin: "*",
-  allowedHeaders: "https://stocktwitscodingtest.herokuapp.com",
-};
+app.use(cors());
 
-app.get("/:symbol", cors(corsOptions), function (req, res, next) {}); //will take whatever is in search bar
+app.get("/api/:symbol", async function (req, res, next) {
+  const value = await axios(
+    `https://api.stocktwits.com/api/2/streams/symbol/${req.params.symbol}.json`
+  );
 
-app.use(express.static("client/build"));
+  res.send(value.data);
+});
 
-app.get("/*", cors(corsOptions), function (req, res) {
+app.get("/*", function (req, res) {
   res.sendFile(path.join(`${__dirname}/client`, "build", "index.html"));
 });
 

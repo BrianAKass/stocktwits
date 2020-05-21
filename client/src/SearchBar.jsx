@@ -10,7 +10,6 @@ const SearchBar = (props) => {
 
   const handleClick = (x) => {
     if (x.target.value) {
-      console.log(x.target.value.replace(/[\$\,]/g, "").split(" "));
       props.input(x.target.value.replace(/[\$\,]/g, "").split(" "));
       setValue("");
     } else {

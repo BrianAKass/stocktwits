@@ -20,7 +20,7 @@ function App() {
           if (!stocks.includes(y)) {
             addStock(y);
           }
-          if (z + 1 == x.length) {
+          if (z + 1 === x.length) {
             lookupStock(y);
           }
         });
@@ -46,24 +46,24 @@ function App() {
     console.log(x);
     console.log(
       stockArray.filter((item, index) => {
-        return item != x;
+        return item !== x;
       })
     );
     setInput(
       stockArray.filter((item, index) => {
-        return item != x;
+        return item !== x;
       })
     );
     setStocks((prev) => {
       return prev.filter((item, index) => {
-        return item != x;
+        return item !== x;
       });
     });
   };
 
   const lookupStock = (x) => {
     if (x) {
-      Axios.get(`https://api.stocktwits.com/api/2/streams/symbol/${x}.json`)
+      Axios.get(`/api/${x}`)
         .then((res) => {
           setTweets(res.data.messages);
         })
