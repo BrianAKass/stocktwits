@@ -7,7 +7,7 @@ app.options("*", cors());
 app.use(cors());
 
 const corsOptions = {
-  origin: "https://api.stocktwits.com", // where the request is coming from
+  origin: "https://stocktwitscodingtest.herokuapp.com/", // where the request is coming from
 };
 app.get("/:symbol", cors(corsOptions), function (req, res, next) {}); //will take whatever is in search bar
 
